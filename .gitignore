@@ -77,3 +77,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+/back-end/obj
+/back-end/bin/Debug/net6.0
+/back-end/.vs
