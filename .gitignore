@@ -80,3 +80,4 @@ Thumbs.db
 /back-end/obj
 /back-end/bin/Debug/net6.0
 /back-end/.vs
+/front-end/node_modules
