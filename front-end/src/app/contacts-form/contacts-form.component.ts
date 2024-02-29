@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { ContactsService } from '../services/contacts.service';
-import { first, switchMap } from 'rxjs/operators';
+import { filter, first, switchMap } from 'rxjs/operators';
 import { SwalFire } from '../services/swal.service';
 import { contacts } from '../model/contact';
 
@@ -19,6 +19,7 @@ export class ContactsFormComponent implements OnInit {
               private activeRoute: ActivatedRoute,
               private service: ContactsService) { 
     this.activeRoute.paramMap.pipe(
+      filter(params => params.has('id')),
       switchMap((params: ParamMap) => this.service.get(params.get('id')!))
     ).pipe(first()).subscribe(
       (res) => {
