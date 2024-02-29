@@ -69,7 +69,7 @@ namespace back_end.Repository
                 getContact.CPF = contact.CPF;
                 getContact.CEP = contact.CEP;
 
-                context.Contacts.Update(contact);
+                context.Contacts.Update(getContact);
                 await context.SaveChangesAsync();
 
                 return getContact;

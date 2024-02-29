@@ -40,7 +40,7 @@ namespace back_end.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<ContactsModel>> Post([FromBody] ContactsModel contact, Guid id)
+        public async Task<ActionResult<ContactsModel>> Put([FromBody] ContactsModel contact, Guid id)
         {
             ContactsModel updateContact = await _contactsInterface.Put(contact, id);
 
