@@ -1,6 +1,8 @@
 using back_end.Data;
+using back_end.Models;
 using back_end.Repository;
 using back_end.Repository.Interfaces;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
 namespace back_end
@@ -24,6 +26,7 @@ namespace back_end
                 );
 
             builder.Services.AddScoped<ContactsInterface, ContactsRepository>();
+            builder.Services.AddTransient<IValidator<ContactsModel>, ContactsValidation>();
 
             builder.Services.AddCors(options =>
             {

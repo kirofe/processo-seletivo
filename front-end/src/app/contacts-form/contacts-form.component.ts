@@ -25,7 +25,7 @@ export class ContactsFormComponent implements OnInit {
       (res) => {
         this.contact = res;
         this.setFormGroup(res);
-      }, (err) => {
+      }, (err) => {     
         SwalFire.error('Error!', 'Erro durante a consulta') 
       }
     );
@@ -58,14 +58,22 @@ export class ContactsFormComponent implements OnInit {
           SwalFire.sucesso('Contato cadastrado com sucesso');  
           this.route.navigate(['']);     
         }, (err) => {
-          SwalFire.error('Error!', 'Erro durante o cadastro')    
+          console.log(err);
+          
+          if(err.error?.length > 0)             
+            SwalFire.errorValidator('Error!', err.error)  
+          else           
+            SwalFire.error('Error!', 'Erro durante o cadastro')    
         })
       } else {
         this.service.post(contact).pipe(first()).subscribe((res) => {
           SwalFire.sucesso('Contato cadastrado com sucesso');  
           this.route.navigate(['']);     
         }, (err) => {
-          SwalFire.error('Error!', 'Erro durante o cadastro')    
+          if(err.error?.length > 0)             
+            SwalFire.errorValidator('Error!', err.error)  
+          else           
+            SwalFire.error('Error!', 'Erro durante a edição')    
         })
       }
       
