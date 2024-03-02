@@ -57,9 +57,7 @@ export class ContactsFormComponent implements OnInit {
         this.service.put(contact, this.contact?.id).pipe(first()).subscribe((res) => {
           SwalFire.sucesso('Contato cadastrado com sucesso');  
           this.route.navigate(['']);     
-        }, (err) => {
-          console.log(err);
-          
+        }, (err) => {          
           if(err.error?.length > 0)             
             SwalFire.errorValidator('Error!', err.error)  
           else           
@@ -68,7 +66,10 @@ export class ContactsFormComponent implements OnInit {
       } else {
         this.service.post(contact).pipe(first()).subscribe((res) => {
           SwalFire.sucesso('Contato cadastrado com sucesso');  
-          this.route.navigate(['']);     
+          this.service.enviarNotificacao().subscribe((res) => {
+            console.log(res);            
+            this.route.navigate(['']);   
+          });  
         }, (err) => {
           if(err.error?.length > 0)             
             SwalFire.errorValidator('Error!', err.error)  

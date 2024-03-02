@@ -26,4 +26,8 @@ export class BaseService {
     delete(id: any) {
         return this.http.delete<any>(`${environment.urlApi}/${this.controller}/${id}`, { headers: this.headers });
     }
+
+    enviarNotificacao() {
+        return this.http.get<any>(`https://run.mocky.io/v3/c9ec2ca3-a7f5-41d0-8550-b859508f4948`, { headers: this.headers });
+    }
 }
