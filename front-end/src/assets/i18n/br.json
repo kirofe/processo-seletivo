@@ -1,0 +1,16 @@
+{
+    "br": "Português",
+    "en": "Inglês",
+    "title": "Agenda de Contatos",
+    "add":"Adicionar",
+    "edit": "Editar",
+    "remove": "Remover",
+    "form": {
+        "firstName": "Nome", 
+        "lastName": "Sobrenome", 
+        "email": "Email", 
+        "phone": "Telefone", 
+        "cpf": "CPF", 
+        "cep": "CEP"
+    }
+}

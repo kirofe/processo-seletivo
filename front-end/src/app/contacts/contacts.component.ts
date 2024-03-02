@@ -6,6 +6,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SwalFire } from '../services/swal.service';
 import { first } from 'rxjs/operators';
 import { contacts } from '../model/contact';
+import { TranslateService } from '@ngx-translate/core';
+import { MyLanguageService } from '../services/mylanguage.service';
 
 
 interface nameColumns {
@@ -19,20 +21,25 @@ interface nameColumns {
 export class ContactsComponent implements OnInit {
   displayedColumns: string[] = ['select', 'firstName', 'lastName', 'email', 'phone', 'cpf', 'cep'];
   dataSource: MatTableDataSource<contacts> = new MatTableDataSource();
-  columnsName: nameColumns = {
-    'firstName': 'Nome', 
-    'lastName': 'Sobrenome', 
-    'email': 'Email', 
-    'phone': 'Telefone', 
-    'cpf': 'CPF', 
-    'cep': 'CEP'
-  };
+  columnsName: nameColumns = {};
 
   selection = new SelectionModel<contacts>(true, []);
 
-  constructor(private contactService: ContactsService, private route: Router) {}
+  constructor(private contactService: ContactsService, private route: Router, private myTranslate: MyLanguageService, private translate: TranslateService) {}
 
-  ngOnInit() {    
+  ngOnInit() { 
+    this.myTranslate.currentLanguage.subscribe(language => {      
+      this.translate.get('form').subscribe((res) => {      
+        this.columnsName = {
+          'firstName': res['firstName'], 
+          'lastName': res['lastName'], 
+          'email': res['email'], 
+          'phone': res['phone'], 
+          'cpf': res['cpf'], 
+          'cep': res['cep']
+        };
+      });
+    });  
     this.getAllContacts();
   }
 

@@ -1,4 +1,4 @@
-<h1 style="width: 100%; text-align-last: center;">Agenda de Contatos</h1>
+<h1 style="width: 100%; text-align-last: center;">{{'title' | translate}}</h1>
 
 <table mat-table *ngIf="dataSource.data.length > 0" [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -30,7 +30,7 @@
 </table>
 
 <div class="button-row">
-  <button mat-raised-button (click)="contactsForms()">Adicionar</button>
-  <button mat-raised-button (click)="edit()">Editar</button>
-  <button mat-raised-button (click)="remover()">Remover</button>
+  <button mat-raised-button (click)="contactsForms()">{{ 'add' | translate }}</button>
+  <button mat-raised-button (click)="edit()">{{ 'edit' | translate }}</button>
+  <button mat-raised-button (click)="remover()">{{ 'remove' | translate}}</button>
 </div>

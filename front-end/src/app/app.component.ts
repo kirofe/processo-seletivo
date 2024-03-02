@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { ContactsService } from './services/contacts.service';
-import { SelectionModel } from '@angular/cdk/collections';
-import { MatTableDataSource } from '@angular/material/table';
+import { FormsModule } from '@angular/forms';
+import { MyLanguageService } from './services/mylanguage.service';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +9,13 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 
 export class AppComponent {
-  title = 'agenda'
+  title = 'agenda' 
+
+  constructor(private translate: MyLanguageService) {
+    translate.setLanguage('br');
+  }
+
+  onChange(event: any) {
+    this.translate.setLanguage(event.target.value); 
+  }
 }

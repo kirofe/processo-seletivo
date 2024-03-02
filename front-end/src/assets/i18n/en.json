@@ -1,0 +1,16 @@
+{
+    "br": "Portuguese",
+    "en": "English",    
+    "title": "Contact Directory",
+    "add": "Add",
+    "edit": "Edit",
+    "remove": "Remove",
+    "form": {
+        "firstName": "Name", 
+        "lastName": "Last Name", 
+        "email": "Email", 
+        "phone": "Phone", 
+        "cpf": "CPF", 
+        "cep": "CEP"
+    }
+}

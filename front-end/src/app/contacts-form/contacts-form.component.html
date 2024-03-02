@@ -1,31 +1,31 @@
 <div [formGroup]="form" class="form">
   <mat-form-field appearance="fill" >
-    <mat-label>Nome</mat-label>
+    <mat-label>{{'form.firstName' | translate}}</mat-label>
     <input matInput formControlName="firstName" [required]="true">
   </mat-form-field>
   <br/>
   <mat-form-field appearance="fill" >
-    <mat-label>Sobrenome</mat-label>
+    <mat-label>{{'form.lastName' | translate}}</mat-label>
     <input matInput formControlName="lastName" [required]="true">
   </mat-form-field>
   <br/>
   <mat-form-field appearance="fill" >
-    <mat-label>Email</mat-label>
+    <mat-label>{{'form.email' | translate}}</mat-label>
     <input matInput formControlName="email" [required]="true">
   </mat-form-field>
   <br/>
   <mat-form-field appearance="fill" >
-    <mat-label>Telefone</mat-label>
+    <mat-label>{{'form.phone' | translate}}</mat-label>
     <input matInput formControlName="phone">
   </mat-form-field>
   <br/>
   <mat-form-field appearance="fill" >
-    <mat-label>CPF</mat-label>
+    <mat-label>{{'form.cpf' | translate}}</mat-label>
     <input matInput formControlName="cpf" [required]="true">
   </mat-form-field>
   <br/>
   <mat-form-field appearance="fill" >
-    <mat-label>CEP</mat-label>
+    <mat-label>{{'form.cep' | translate}}</mat-label>
     <input matInput formControlName="cep" [required]="true">
   </mat-form-field>
 

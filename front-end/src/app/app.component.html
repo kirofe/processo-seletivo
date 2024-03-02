@@ -1,2 +1,10 @@
 <!-- <app-contacts></app-contacts> -->
+<mat-form-field>
+    <mat-label></mat-label>
+    <select matNativeControl required (change)="onChange($event)">
+        <option value="br">{{ 'br' | translate }}</option>
+        <option value="en">{{ 'en' | translate }}</option>
+    </select>
+</mat-form-field>
+
 <router-outlet></router-outlet>
